@@ -13,6 +13,7 @@ const Breadcrumb = () => {
 
   useEffect(() => {
     navigation.items.map((item, index) => {
+      console.log(item);
       if (item.type && item.type === 'group') {
         getCollapse(item, index);
       }
@@ -29,6 +30,7 @@ const Breadcrumb = () => {
           if (location.pathname === collapse.url) {
             setMain(item);
             setItem(collapse);
+            console.log(item);
           }
         }
         return false;

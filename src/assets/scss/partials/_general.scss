@@ -1008,3 +1008,7 @@ p.text-muted {
     filter: invert(1) grayscale(100%) brightness(200%) !important;
   }
 }
+
+ul.pagination {
+  justify-content: center;
+}

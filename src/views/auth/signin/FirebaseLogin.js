@@ -4,8 +4,10 @@ import { Row, Col, Button, Alert } from 'react-bootstrap';
 
 import * as Yup from 'yup';
 import { Formik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 
 const FirebaseLogin = ({ className, ...rest }) => {
+  const navigate = useNavigate();
   return (
     <React.Fragment>
       <Formik
@@ -13,6 +15,12 @@ const FirebaseLogin = ({ className, ...rest }) => {
           email: 'info@codedthemes.com',
           password: '123456',
           submit: null
+        }}
+        onSubmit={(values, actions) => {
+          console.log(JSON.stringify(values, null, 2));
+          actions.setSubmitting(false);
+          localStorage.setItem("access_token", "access_token");
+          navigate('/');
         }}
         validationSchema={Yup.object().shape({
           email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
@@ -52,8 +60,8 @@ const FirebaseLogin = ({ className, ...rest }) => {
               </Col>
             )}
 
-            <div className="custom-control custom-checkbox  text-start mb-4 mt-2">
-              <input type="checkbox" className="custom-control-input" id="customCheck1" />
+            <div className="custom-control custom-checkbox  text-start mb-4 mt-2 mr-2">
+              <input type="checkbox" className="custom-control-input me-2" id="customCheck1" />
               <label className="custom-control-label" htmlFor="customCheck1">
                 Save credentials.
               </label>

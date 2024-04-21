@@ -1,10 +1,10 @@
 import React, { Suspense, Fragment, lazy } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate  } from 'react-router-dom';
 
 import Loader from './components/Loader/Loader';
 import AdminLayout from './layouts/AdminLayout';
 
-import { BASE_URL } from './config/constant';
+// import { BASE_URL } from './config/constant';
 
 export const renderRoutes = (routes = []) => (
   <Suspense fallback={<Loader />}>
@@ -13,13 +13,15 @@ export const renderRoutes = (routes = []) => (
         const Guard = route.guard || Fragment;
         const Layout = route.layout || Fragment;
         const Element = route.element;
-
+        const isAuthen = route.authen;
+        const token = localStorage.getItem('access_token');
+      
         return (
           <Route
             key={i}
             path={route.path}
             element={
-              <Guard>
+             isAuthen==true && token==null?  <Navigate to="/login" />:<Guard>
                 <Layout>{route.routes ? renderRoutes(route.routes) : <Element props={true} />}</Layout>
               </Guard>
             }
@@ -52,8 +54,14 @@ const routes = [
     element: lazy(() => import('./views/auth/reset-password/ResetPassword1'))
   },
   {
+    exact: 'true',
+    path: '/landing-page',
+    element: lazy(() => import('./layouts/LandingLayout'))
+  },
+  {
     path: '*',
     layout: AdminLayout,
+    authen: true,
     routes: [
       {
         exact: 'true',
@@ -112,18 +120,23 @@ const routes = [
       },
       {
         exact: 'true',
-        path: '/maps/google-map',
-        element: lazy(() => import('./views/maps/GoogleMaps'))
-      },
-      {
-        exact: 'true',
         path: '/sample-page',
         element: lazy(() => import('./views/extra/SamplePage'))
       },
       {
+        exact: 'true',
+        path: 'users/list',
+        element: lazy(() => import('./views/users'))
+      },
+      {
+        exact: 'true',
+        path: 'users/create',
+        element: lazy(() => import('./views/users/add-new-user'))
+      },
+      {
         path: '*',
         exact: 'true',
-        element: () => <Navigate to={BASE_URL} />
+        element: () => <Navigate to={'landing-page'} />
       }
     ]
   }

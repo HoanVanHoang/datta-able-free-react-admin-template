@@ -19,6 +19,7 @@ const AdminLayout = ({ children }) => {
   const { dispatch } = configContext;
 
   useEffect(() => {
+    console.log("chang layout", headerFixedLayout)
     if (windowSize.width > 992 && windowSize.width <= 1024) {
       dispatch({ type: actionType.COLLAPSE_MENU });
     }
@@ -29,12 +30,14 @@ const AdminLayout = ({ children }) => {
   }, [dispatch, windowSize]);
 
   useOutsideClick(ref, () => {
+    console.log("outside click", collapseMenu)
     if (collapseMenu) {
       dispatch({ type: actionType.COLLAPSE_MENU });
     }
   });
 
   const mobileOutClickHandler = () => {
+    console.log("outside click mobile", collapseMenu)
     if (windowSize.width < 992 && collapseMenu) {
       dispatch({ type: actionType.COLLAPSE_MENU });
     }

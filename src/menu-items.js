@@ -16,6 +16,21 @@ const menuItems = {
       ]
     },
     {
+      id: 'navigation',
+      title: 'User Manager',
+      type: 'group',
+      icon: 'icon-navigation',
+      children: [
+        {
+          id: 'user-list',
+          title: 'User List',
+          type: 'item',
+          icon: 'feather icon-users',
+          url: '/users/list'
+        }
+      ]
+    },
+    {
       id: 'ui-element',
       title: 'UI ELEMENT',
       type: 'group',
