@@ -1008,7 +1008,14 @@ p.text-muted {
     filter: invert(1) grayscale(100%) brightness(200%) !important;
   }
 }
-
+.modal-content{
+  align-items: center;
+} 
+.modal-header,
+.modal-body,
+.modal-footer{
+   width: 100%;
+}
 ul.pagination {
   justify-content: center;
 }

@@ -27,6 +27,8 @@
         8) menu-icon-color
             List of color for sidebar menu items icon colors
 */
+// import form onine
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
 $header-height: 70px;
 $Menu-width: 264px;
 $Menu-collapsed-width: 80px;
@@ -47,6 +49,12 @@ $light-color: #f2f2f2;
 $dark-color: #37474f;
 $inverse-color: $dark-color;
 $theme-border: #eaeaea;
+$main-color:#c10960;
+$theme-background: #e6e4e4;
+$divider-gray: #dddddd;
+$text-sale-color: rgba(0, 0, 0, .54);
+$main-color-50:#c1095f6b;
+$second-color:#004d85;
 
 // header
 $brand-background: #3f4d67;
@@ -85,10 +93,10 @@ $color-title-color: $primary-color, #ff5252, #9575cd, #23b7e5, lighten($dark-lay
 // layout-6 background color
 $layout-6-bg-color: #23b7e5;
 
-$theme-font-family: 'Open Sans', sans-serif;
+$theme-font-family: 'Lato', sans-serif;
 $theme-font-size: 14px;
 $theme-background: #f4f7fa;
-$theme-font-color: #888;
+$theme-font-color: #2b2626;
 $theme-heading-color: #111;
 
 $color-name: c-blue, c-red, c-green, c-yellow, c-purple;

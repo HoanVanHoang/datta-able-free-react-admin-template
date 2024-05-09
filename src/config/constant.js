@@ -7,3 +7,10 @@ export const CONFIG = {
   collapseMenu: false,
   layoutType: 'menu-dark'
 };
+
+
+export const MAIN_COLOR = '#c10960';
+export const SECOND_COLOR = '#004d85';
+
+
+export const URL_FOR_GOOGLESHEET = "https://script.google.com/macros/s/AKfycbyDmy9ZN3Yyd6YYXtrMTw-oW-1NNjJL3xWNeS88ovNsn5Oj79vBzweK9r5R7qojktit/exec";
